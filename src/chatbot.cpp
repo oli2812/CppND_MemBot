@@ -44,7 +44,73 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+//TASK2: implementing Rule of Five for Chatbot
 
+//ChatBot Copy Constructor
+ChatBot::ChatBot(const ChatBot &source) {
+    std::cout << "ChatBot Copy Constructor \n";
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
+    _image = source._image;
+}
+
+//ChatBot Copy Assignment
+ChatBot &ChatBot::operator=(const ChatBot &source) {
+    std::cout << "ChatBot Copy Assignment \n";
+
+    //prevent self assignment
+    if(this == &source) {
+        return *this;
+    }
+
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
+    _image = source._image;
+
+    return *this;
+}
+
+//ChatBot Move Constructor
+ChatBot::ChatBot(ChatBot &&source) {
+    std::cout << "ChatBot Move Constructor \n";
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
+    _image = source._image;
+    //TEST
+    //_chatLogic->SetChatbotHandle(this);
+
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._currentNode = nullptr;
+    source._image = nullptr;
+}
+
+//ChatBot Move Assignment
+ChatBot &ChatBot::operator=(ChatBot &&source) {
+    std::cout << "ChatBot Move Assignment \n";
+
+    //prevent self assignment
+    if(this == &source) {
+        return *this;
+    }
+
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
+    _image = source._image;
+    //TEST
+    //_chatLogic->SetChatbotHandle(this);
+
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._currentNode = nullptr;
+    source._image = nullptr;
+
+    return *this;
+}
 ////
 //// EOF STUDENT CODE
 
