@@ -30,6 +30,12 @@ public:
     //// STUDENT CODE
     ////
 
+    // TASK2: integrating copy and move constructors/assignments to comply with the rule of Five
+    ChatBot(const ChatBot &source); //copy constructor
+    ChatBot &operator=(const ChatBot &source); //overloading copy assignment operator
+    ChatBot(ChatBot &&source); //move constructor
+    ChatBot &operator=(ChatBot &&source); //overloading move assignment operator
+    
     ////
     //// EOF STUDENT CODE
 
